@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class AccountsController {
     @Value("${env.name}")
     private String envName;
-//    @Value("${build.version:1.0.0.0}")
     @Value("${build.version}")
     private String buildVersion;
     @GetMapping("/envName")
