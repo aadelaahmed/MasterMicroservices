@@ -16,7 +16,7 @@ services:
       service: network-deploy-service
 
   configserver:
-    image: "aadelelsayed/configserver:s6"
+    image: "aadelelsayed/configserver:latest"
     container_name: configserver-ms
     ports:
       - "8084:8084"
@@ -34,7 +34,7 @@ services:
       service: microservice-base-config
 
   accounts:
-    image: "aadelelsayed/accounts:s6"
+    image: "aadelelsayed/accounts:latest"
     container_name: accounts-ms
     ports:
       - "8081:8081"
@@ -48,7 +48,7 @@ services:
       service: microservice-configserver-config
 
   loans:
-    image: "aadelelsayed/loans:s6"
+    image: "aadelelsayed/loans:latest"
     container_name: loans-ms
     ports:
       - "8083:8083"
@@ -62,7 +62,7 @@ services:
       service: microservice-configserver-config
 
   cards:
-    image: "aadelelsayed/cards:s6"
+    image: "aadelelsayed/cards:latest"
     container_name: cards-ms
     ports:
       - "8082:8082"
