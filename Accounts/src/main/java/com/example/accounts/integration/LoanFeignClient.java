@@ -5,6 +5,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @FeignClient(name = "loans-feign-client",url = "${loans.service.url}")
 public interface LoanFeignClient {
-    @GetMapping("hello")
+    @GetMapping("loans/hello")
     String sayHello();
 }

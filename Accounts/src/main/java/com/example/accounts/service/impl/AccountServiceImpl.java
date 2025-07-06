@@ -4,19 +4,20 @@ import com.example.accounts.integration.CardFeignClient;
 import com.example.accounts.integration.LoanFeignClient;
 import com.example.accounts.model.response.FullDetailsResponse;
 import com.example.accounts.service.AccountService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
 public class AccountServiceImpl implements AccountService {
-    private final CardFeignClient cardFeignClient;
-    private final LoanFeignClient loanFeignClient;
+    @Autowired
+    CardFeignClient cardFeignClient;
+    @Autowired
+    LoanFeignClient loanFeignClient;
     @Override
     public FullDetailsResponse getFullDetails() {
-        return FullDetailsResponse.builder()
-                .cardsDetails(cardFeignClient.sayHello())
-                .loansDetails(loanFeignClient.sayHello())
-                .build();
+        return new FullDetailsResponse(
+                cardFeignClient.sayHello(),
+                loanFeignClient.sayHello()
+        );
     }
 }
